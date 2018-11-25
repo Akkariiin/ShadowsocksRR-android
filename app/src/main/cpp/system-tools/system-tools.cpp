@@ -1,4 +1,6 @@
-#define LOG_TAG "Shadowsocks"
+// this file content modify from shadowsocks
+
+#define LOG_TAG "ShadowsocksRR"
 
 #include "jni.h"
 #include <android/log.h>
@@ -97,17 +99,17 @@ jint Java_moe_yuruyuri_akkariiin_shadowsocksrr_SystemTools_sendfd(JNIEnv *env, j
     return 0;
 }
 
-static const char *classPathName = "com/github/shadowsocks/System";
+static const char *classPathName = "moe/yuruyuri/akkariiin/shadowsocksrr/SystemTools";
 
 static JNINativeMethod method_table[] = {
         { "jniclose", "(I)V",
-                (void*) Java_com_github_shadowsocks_system_jniclose },
+                (void*) Java_moe_yuruyuri_akkariiin_shadowsocksrr_SystemTools_jniclose },
         { "sendfd", "(ILjava/lang/String;)I",
-                (void*) Java_com_github_shadowsocks_system_sendfd },
+                (void*) Java_moe_yuruyuri_akkariiin_shadowsocksrr_SystemTools_sendfd },
         { "exec", "(Ljava/lang/String;)I",
-                (void*) Java_com_github_shadowsocks_system_exec },
+                (void*) Java_moe_yuruyuri_akkariiin_shadowsocksrr_SystemTools_exec },
         { "getABI", "()Ljava/lang/String;",
-                (void*) Java_com_github_shadowsocks_system_getabi }
+                (void*) Java_moe_yuruyuri_akkariiin_shadowsocksrr_SystemTools_getabi }
 };
 
 

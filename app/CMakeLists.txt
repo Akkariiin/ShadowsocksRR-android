@@ -8,6 +8,14 @@ cmake_minimum_required(VERSION 3.4.1)
 include(AndroidNdkModules)
 android_ndk_import_module_cpufeatures()
 
+#ExternalProject_Add(
+#
+#)
+
+add_subdirectory(
+        src/main/cpp/libancillary
+)
+
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds them for you.
@@ -21,12 +29,6 @@ add_library( # Sets the name of the library.
 
         # Provides a relative path to your source file(s).
         src/main/cpp/native-lib/native-lib.cpp)
-
-add_library(
-        system-tools
-        SHARED
-        src/main/cpp/system-tools/system-tools.cpp
-)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
@@ -52,8 +54,24 @@ target_link_libraries( # Specifies the target library.
         # included in the NDK.
         ${log-lib})
 
+
+
+
+add_library(
+        system-tools
+        SHARED
+        src/main/cpp/system-tools/system-tools.cpp
+)
+
+target_include_directories(
+        system-tools
+        PRIVATE
+        src/main/cpp/libancillary
+)
+
 target_link_libraries(
         system-tools
         cpufeatures
+        libancillary
         ${log-lib}
 )
