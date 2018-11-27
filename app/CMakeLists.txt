@@ -12,9 +12,45 @@ android_ndk_import_module_cpufeatures()
 #
 #)
 
-add_subdirectory(
-        src/main/cpp/libancillary
+#add_subdirectory(
+#        src/main/cpp/libancillary
+#)
+
+# 3th lib
+include(
+        src/main/cpp/cmake/libancillary.cmake
 )
+include(
+        src/main/cpp/cmake/pcre.cmake
+)
+include(
+        src/main/cpp/cmake/tun2socks.cmake
+)
+include(
+        src/main/cpp/cmake/libevent.cmake
+)
+include(
+        src/main/cpp/cmake/redsocks.cmake
+)
+include(
+        src/main/cpp/cmake/pdnsd.cmake
+)
+include(
+        src/main/cpp/cmake/proxychains.cmake
+)
+include(
+        src/main/cpp/cmake/mbedtls.cmake
+)
+#include(   # TODO
+#        src/main/cpp/cmake/libev.cmake
+#)
+
+
+#add_library(
+##        src/main/cpp/cmake/libancillary.cmake
+##        src/main/cpp/cmake/pcre.cmake
+##        src/main/cpp/cmake/tun2socks.cmake
+#)
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
@@ -55,8 +91,7 @@ target_link_libraries( # Specifies the target library.
         ${log-lib})
 
 
-
-
+##########################  system-tools  ################################
 add_library(
         system-tools
         SHARED

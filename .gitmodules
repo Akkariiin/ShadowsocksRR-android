@@ -1,3 +1,24 @@
 [submodule "app/src/main/cpp/libancillary"]
 	path = app/src/main/cpp/libancillary
 	url = ../../shadowsocksrr/libancillary.git
+[submodule "app/src/main/cpp/pcre"]
+	path = app/src/main/cpp/pcre
+	url = https://android.googlesource.com/platform/external/pcre
+[submodule "app/src/main/cpp/redsocks"]
+	path = app/src/main/cpp/redsocks
+	url = ../../shadowsocks/redsocks.git
+[submodule "app/src/main/cpp/badvpn"]
+	path = app/src/main/cpp/badvpn
+	url = ../../shadowsocks/badvpn.git
+[submodule "app/src/main/cpp/libevent"]
+	path = app/src/main/cpp/libevent
+	url = ../../shadowsocksrr/libevent.git
+[submodule "app/src/main/cpp/pdnsd"]
+	path = app/src/main/cpp/pdnsd
+	url = ../../shadowsocks/pdnsd.git
+[submodule "app/src/main/cpp/proxychains-ng"]
+	path = app/src/main/cpp/proxychains-ng
+	url = ../../esdeathlove/proxychains-ng.git
+[submodule "app/src/main/cpp/mbedtls"]
+	path = app/src/main/cpp/mbedtls
+	url = ../../ARMmbed/mbedtls
