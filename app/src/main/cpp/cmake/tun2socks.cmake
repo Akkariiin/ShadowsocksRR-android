@@ -5,10 +5,6 @@ project(tun2socks C)
 set(CMAKE_C_STANDARD 99)
 
 set(
-        tun2socks_ROOT_DIR
-        ${CMAKE_CURRENT_LIST_DIR}/../tun2socks
-)
-set(
         badvpn_ROOT_DIR
         ${CMAKE_CURRENT_LIST_DIR}/../badvpn
 )
@@ -17,15 +13,15 @@ set(
         ${CMAKE_CURRENT_LIST_DIR}/../libancillary
 )
 
-add_definitions(BADVPN_BREACTOR_BADVPN)
-add_definitions(BADVPN_LINUX)
-add_definitions(BADVPN_THREADWORK_USE_PTHREAD)
-add_definitions(BADVPN_USE_SELFPIPE)
-add_definitions(BADVPN_USE_EPOLL)
-add_definitions(BADVPN_LITTLE_ENDIAN)
-add_definitions(BADVPN_THREAD_SAFE)
-add_definitions(NDEBUG)
-add_definitions(ANDROID)
+add_definitions(-DBADVPN_BREACTOR_BADVPN)
+add_definitions(-DBADVPN_LINUX)
+add_definitions(-DBADVPN_THREADWORK_USE_PTHREAD)
+add_definitions(-DBADVPN_USE_SELFPIPE)
+add_definitions(-DBADVPN_USE_EPOLL)
+add_definitions(-DBADVPN_LITTLE_ENDIAN)
+add_definitions(-DBADVPN_THREAD_SAFE)
+add_definitions(-DNDEBUG)
+add_definitions(-DANDROID)
 
 include_directories(
         ${libancillary_ROOT_DIR}
@@ -38,66 +34,66 @@ include_directories(
 
 set(
         tun2socks_SRC_FILE
-        ${tun2socks_ROOT_DIR}/base/BLog_syslog.c
-        ${tun2socks_ROOT_DIR}/system/BReactor_badvpn.c
-        ${tun2socks_ROOT_DIR}/system/BSignal.c
-        ${tun2socks_ROOT_DIR}/system/BConnection_common.c
-        ${tun2socks_ROOT_DIR}/system/BConnection_unix.c
-        ${tun2socks_ROOT_DIR}/system/BTime.c
-        ${tun2socks_ROOT_DIR}/system/BUnixSignal.c
-        ${tun2socks_ROOT_DIR}/system/BNetwork.c
-        ${tun2socks_ROOT_DIR}/flow/StreamRecvInterface.c
-        ${tun2socks_ROOT_DIR}/flow/PacketRecvInterface.c
-        ${tun2socks_ROOT_DIR}/flow/PacketPassInterface.c
-        ${tun2socks_ROOT_DIR}/flow/StreamPassInterface.c
-        ${tun2socks_ROOT_DIR}/flow/SinglePacketBuffer.c
-        ${tun2socks_ROOT_DIR}/flow/BufferWriter.c
-        ${tun2socks_ROOT_DIR}/flow/PacketBuffer.c
-        ${tun2socks_ROOT_DIR}/flow/PacketStreamSender.c
-        ${tun2socks_ROOT_DIR}/flow/PacketPassConnector.c
-        ${tun2socks_ROOT_DIR}/flow/PacketProtoFlow.c
-        ${tun2socks_ROOT_DIR}/flow/PacketPassFairQueue.c
-        ${tun2socks_ROOT_DIR}/flow/PacketProtoEncoder.c
-        ${tun2socks_ROOT_DIR}/flow/PacketProtoDecoder.c
-        ${tun2socks_ROOT_DIR}/socksclient/BSocksClient.c
-        ${tun2socks_ROOT_DIR}/tuntap/BTap.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/timers.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/udp.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/memp.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/init.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/pbuf.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/tcp.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/tcp_out.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/netif.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/def.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/mem.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/tcp_in.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/stats.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/inet_chksum.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/ipv4/icmp.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/ipv4/igmp.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/ipv4/ip4_addr.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/ipv4/ip_frag.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/ipv4/ip4.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/ipv4/autoip.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/ipv6/ethip6.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/ipv6/inet6.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/ipv6/ip6_addr.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/ipv6/mld6.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/ipv6/dhcp6.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/ipv6/icmp6.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/ipv6/ip6.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/ipv6/ip6_frag.c
-        ${tun2socks_ROOT_DIR}/lwip/src/core/ipv6/nd6.c
-        ${tun2socks_ROOT_DIR}/lwip/custom/sys.c
-        ${tun2socks_ROOT_DIR}/tun2socks/tun2socks.c
-        ${tun2socks_ROOT_DIR}/base/DebugObject.c
-        ${tun2socks_ROOT_DIR}/base/BLog.c
-        ${tun2socks_ROOT_DIR}/base/BPending.c
-        ${tun2socks_ROOT_DIR}/system/BDatagram_unix.c
-        ${tun2socks_ROOT_DIR}/flowextra/PacketPassInactivityMonitor.c
-        ${tun2socks_ROOT_DIR}/tun2socks/SocksUdpGwClient.c
-        ${tun2socks_ROOT_DIR}/udpgw_client/UdpGwClient.c
+        ${badvpn_ROOT_DIR}/base/BLog_syslog.c
+        ${badvpn_ROOT_DIR}/system/BReactor_badvpn.c
+        ${badvpn_ROOT_DIR}/system/BSignal.c
+        ${badvpn_ROOT_DIR}/system/BConnection_common.c
+        ${badvpn_ROOT_DIR}/system/BConnection_unix.c
+        ${badvpn_ROOT_DIR}/system/BTime.c
+        ${badvpn_ROOT_DIR}/system/BUnixSignal.c
+        ${badvpn_ROOT_DIR}/system/BNetwork.c
+        ${badvpn_ROOT_DIR}/flow/StreamRecvInterface.c
+        ${badvpn_ROOT_DIR}/flow/PacketRecvInterface.c
+        ${badvpn_ROOT_DIR}/flow/PacketPassInterface.c
+        ${badvpn_ROOT_DIR}/flow/StreamPassInterface.c
+        ${badvpn_ROOT_DIR}/flow/SinglePacketBuffer.c
+        ${badvpn_ROOT_DIR}/flow/BufferWriter.c
+        ${badvpn_ROOT_DIR}/flow/PacketBuffer.c
+        ${badvpn_ROOT_DIR}/flow/PacketStreamSender.c
+        ${badvpn_ROOT_DIR}/flow/PacketPassConnector.c
+        ${badvpn_ROOT_DIR}/flow/PacketProtoFlow.c
+        ${badvpn_ROOT_DIR}/flow/PacketPassFairQueue.c
+        ${badvpn_ROOT_DIR}/flow/PacketProtoEncoder.c
+        ${badvpn_ROOT_DIR}/flow/PacketProtoDecoder.c
+        ${badvpn_ROOT_DIR}/socksclient/BSocksClient.c
+        ${badvpn_ROOT_DIR}/tuntap/BTap.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/timers.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/udp.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/memp.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/init.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/pbuf.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/tcp.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/tcp_out.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/netif.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/def.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/mem.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/tcp_in.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/stats.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/inet_chksum.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/ipv4/icmp.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/ipv4/igmp.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/ipv4/ip4_addr.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/ipv4/ip_frag.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/ipv4/ip4.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/ipv4/autoip.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/ipv6/ethip6.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/ipv6/inet6.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/ipv6/ip6_addr.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/ipv6/mld6.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/ipv6/dhcp6.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/ipv6/icmp6.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/ipv6/ip6.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/ipv6/ip6_frag.c
+        ${badvpn_ROOT_DIR}/lwip/src/core/ipv6/nd6.c
+        ${badvpn_ROOT_DIR}/lwip/custom/sys.c
+        ${badvpn_ROOT_DIR}/tun2socks/tun2socks.c
+        ${badvpn_ROOT_DIR}/base/DebugObject.c
+        ${badvpn_ROOT_DIR}/base/BLog.c
+        ${badvpn_ROOT_DIR}/base/BPending.c
+        ${badvpn_ROOT_DIR}/system/BDatagram_unix.c
+        ${badvpn_ROOT_DIR}/flowextra/PacketPassInactivityMonitor.c
+        ${badvpn_ROOT_DIR}/tun2socks/SocksUdpGwClient.c
+        ${badvpn_ROOT_DIR}/udpgw_client/UdpGwClient.c
 )
 
 

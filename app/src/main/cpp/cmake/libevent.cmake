@@ -23,7 +23,8 @@ set(
         ${libevent_ROOT_DIR}/bufferevent_ratelim.c
         ${libevent_ROOT_DIR}/bufferevent_sock.c
         ${libevent_ROOT_DIR}/epoll.c
-        ${libevent_ROOT_DIR}/epoll_sub.c evdns.c
+        ${libevent_ROOT_DIR}/epoll_sub.c
+        ${libevent_ROOT_DIR}/evdns.c
         ${libevent_ROOT_DIR}/event.c
         ${libevent_ROOT_DIR}/event_tagging.c
         ${libevent_ROOT_DIR}/evmap.c

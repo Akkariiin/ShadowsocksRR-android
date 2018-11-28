@@ -14,7 +14,7 @@ set(
 )
 
 
-add_definitions(USE_IPTABLES)
+add_definitions(-DUSE_IPTABLES)
 
 set(
         redsocks_SRC_FILE
@@ -39,7 +39,7 @@ include_directories(
         ${libevent_ROOT_DIR}/include
 )
 
-add_definitions(HAVE_CONFIG_H)
+add_definitions(-DHAVE_CONFIG_H)
 
 add_library(
         redsocks

@@ -6,7 +6,7 @@ set(CMAKE_C_STANDARD 11)
 
 set(
         mbedtls_ROOT_DIR
-        ${CMAKE_CURRENT_LIST_DIR}/mbedtls
+        ${CMAKE_CURRENT_LIST_DIR}/../mbedtls
 )
 set(
         libancillary_ROOT_DIR

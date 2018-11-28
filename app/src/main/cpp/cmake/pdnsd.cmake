@@ -68,10 +68,10 @@ file(
 include_directories(
         ${pdnsd_ROOT_DIR}
         ${libancillary_ROOT_DIR}
-        ${CMAKE_CURRENT_LIST_DIR}/include/pdnsd
+        ${CMAKE_CURRENT_LIST_DIR}/../include/pdnsd
 )
 
-add_definitions(ANDROID)
+add_definitions(-DANDROID)
 
 add_executable(
         pdnsd

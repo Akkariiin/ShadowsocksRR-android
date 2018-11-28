@@ -11,10 +11,10 @@ set(
 
 include_directories(
         ${libev_ROOT_DIR}
-        ${CMAKE_CURRENT_LIST_DIR}/include/libev
+        ${CMAKE_CURRENT_LIST_DIR}/../include/libev
 )
 
-add_definitions(HAVE_CONFIG_H)
+add_definitions(-DHAVE_CONFIG_H)
 
 set(
         libev_SRC_FILE

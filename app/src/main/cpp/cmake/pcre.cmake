@@ -40,7 +40,7 @@ include_directories(
         ${pcre_ROOT_DIR}/dist
 )
 
-add_definitions(HAVE_CONFIG_H)
+add_definitions(-DHAVE_CONFIG_H)
 
 add_library(
         pcre
